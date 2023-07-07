@@ -1,0 +1,48 @@
+<!--<h1>{{ titre }}</h1>
+<ul>
+    <li>{{ tab[0] }}</li>
+    <li>{{ tab[1] }}</li>
+    <li>{{ tab[2] }}</li>
+    <li>{{ tab[3] }}</li>
+    <li>{{ tab[4] }}</li>
+</ul>
+************************************
+
+<ul> 
+    <li *ngFor="let t of tab"> {{t}} </li> 
+</ul>
+
+<ul>
+    <li *ngFor="let t of tab; index as indice; count as compteur">
+        {{ t }} a pour position {{ indice + 1 }} / {{ compteur }}</li>
+</ul>
+********************************
+<ul>
+    <li *ngFor="let t of tab; index as indice; count as compteur">
+       {{ t }} <button *ngIf="t%2==0" (click)="onPosition(indice)" >Position</button>
+       </li>
+</ul>
+
+<h2>3. Affichage des éléments pairs du tableau</h2>
+<ul>
+    <ng-container *ngFor="let t of tab; index as indice; count as compteur  ">
+        <li *ngIf="t%2==0">{{ t }} <button  (click)="onPosition(indice)" >Position</button></li>
+    </ng-container>
+</ul>
+
+<ol>
+    <li *ngFor="let t of tab">  {{t}} 
+        <ng-container [ngSwitch]="t">
+            <p *ngSwitchCase="0">Zéro</p>
+            <p *ngSwitchCase="15">Quinze</p>
+            <p *ngSwitchDefault>Seize ou plus</p>
+        </ng-container>
+    </li>
+</ol>-->
+<h2> 4. Personnalisation dynamique du style des éléments du tableau</h2> 
+<ul>
+    <li *ngFor="let t of tab"> 
+    <span [ngStyle]="{color:colorier(t), 'font-style':style}" ><i [ngClass]="{'fa': true, 'fa-arrow-circle-down': (t<50), 'fa-arrow-circle-up': t>=50}">{{t}}</i></span> 
+    </li> 
+</ul>
+<button (click)="onModifStyle()" [ngClass]="maClasse" >{{ titlebutton }}</button>

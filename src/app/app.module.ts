@@ -3,9 +3,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 
+import { TableauComponent } from './tableau/tableau.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TableauComponent,
+ 
   ],
   imports: [
     BrowserModule
